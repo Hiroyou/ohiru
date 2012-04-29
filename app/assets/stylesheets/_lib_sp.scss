@@ -1,0 +1,73 @@
+// ########################################
+// Sass mixin
+// ########################################
+
+@mixin border-radius($size:10px) {
+	-moz-border-radius: $size;
+	-ms-border-radius: $size;
+	-o-border-radius: $size;
+	-webkit-border-radius: $size;
+	border-radius: $size;
+}
+
+@mixin border-box() {
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin linear-gradient($from:#ffffff,$to:#e5e5e5) {
+	background: $from;
+	background: -moz-linear-gradient(top, $from, $to);
+	background: -ms-linear-gradient(top, $from, $to);
+	background: -o-linear-gradient(top, $from, $to);
+	background: -webkit-linear-gradient(top, $from, $to);
+	background: linear-gradient(top, $from, $to);
+}
+@mixin background-size($w:100%,$h:100%) {
+	-moz-background-size: $w $h;
+	-ms-background-size: $w $h;
+	-o-background-size: $w $h;
+	-webkit-background-size: $w $h;
+	background-size: $w $h;
+}
+
+@mixin text-shadow($value:none) {
+	$value: unquote($value);
+	text-shadow: $value;
+}
+
+@mixin text-overflow() {
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+@mixin box-shadow($value:none) {
+	$value: unquote($value);
+	-moz-box-shadow: $value;
+	-ms-box-shadow: $value;
+	-o-box-shadow: $value;
+	-webkit-box-shadow: $value;
+	box-shadow: $value;
+}
+
+@mixin clearfix() {
+	zoom: 1;
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+		height: 0;
+	}
+}
+
+@mixin min-height($value:none) {
+  min-height: $value;
+  height: auto !important;  
+  height: $value; 
+}
+
