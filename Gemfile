@@ -59,8 +59,8 @@ group :test do
   gem 'ramaze' # cucumber has a dependency
   gem 'webrat' # cucumber has a dependency
   gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'headless'
+  #gem 'capybara-webkit'
+  #gem 'headless'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'spork-rails'
