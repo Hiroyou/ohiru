@@ -1,0 +1,431 @@
+@chaeset "UTF-8";
+
+@import "lib_sp";
+@import "com_site_config";
+@import "com_style_init";
+
+
+
+/*
+################################################################################
+Default Style
+################################################################################*/
+html {
+	margin: 0; padding: 0;
+	height: 100%;
+}
+body {
+	background: #86CACC;
+	color: $colorTextBase;
+	font-family: sans-serif;
+	line-height: 1.25;
+	overflow-y: scroll;
+}
+
+a {
+	color: $colorTextLink;
+	text-decoration: underline;
+	&:hover, &:active {
+		text-decoration: none;
+	}
+	img {
+		border: none;
+	}
+}
+
+$logoHei: 40px;
+#logo {
+	width: 200px;
+	height: $logoHei;
+//	padding: 10px 20px;
+	padding: 10px 0;
+	background: transparent url(#{$imgDir}logo.png) 20px 3px no-repeat;
+	color: $colorTextBase;
+	font-weight: bold;
+	font-size: 160%;
+//	text-indent: -9999px;
+	a {
+		color: #333333;
+		text-decoration: none;
+	}
+}
+
+
+
+/*
+################################################################################
+Layout Style
+################################################################################*/
+
+$siteWidth: 900px;
+$sideWidth: 210px;
+
+.inner {
+	width: $siteWidth;
+	margin: 0 auto;
+	position: relative;
+}
+
+#wrap {
+	width: 100%;
+	height: 100%;
+//	background: url(#{$imgDir}bg_body.png) 50% 0 repeat $colorBgBase;
+}
+
+#container {
+	background: $colorBase;
+	min-height: 340px;
+	&.inner {
+		width: $siteWidth;
+		margin: 0 auto;
+		background: $colorBgMain;
+	}
+	&.twoCol {
+		zoom: 1;
+		#main {
+			width: $siteWidth - $sideWidth - 90px;
+			float: left;
+		}
+	}
+	&.twoCol:after { content: ""; display: block; clear: both; height: 0; }
+}
+
+#main {
+//	padding: 20px 40px;
+	padding: 20px 0;
+}
+
+#aside {
+	width: $sideWidth;
+	padding: 20px 0;
+	float: right; 
+}
+
+#header {
+	width: 100%;
+	background: $colorBase;
+	border-bottom: 1px solid $colorLineGrayLight;
+}
+
+#footer {
+	width: 100%;
+	font-size: 84%;
+	bottom: 0;
+	.inner {
+		padding: 30px 0;
+	}
+	ul {
+		position: absolute;
+		right: 0;
+		top: 30px;
+		li {
+			margin-left: 10px;
+			float: left;
+			a {
+				margin: 0 5px;
+			}		
+		}
+	}
+	a { color: $colorTextWeak;}
+	
+}
+
+#nav {
+	width: $siteWidth - 200px;
+	font-size: 84%;
+	position: absolute;
+	right: 0px;
+	top: 10px;
+	zoom: 1;
+	&:after { content: ""; display: block; clear: both; height: 0; }
+	#gloNav {
+		float: left;
+	}
+	#utilityNav {
+		float: right;
+	}
+	li {
+		margin-left: 10px;
+		line-height: $logoHei;
+		float: left;
+	}
+}
+
+
+/*
+################################################################################
+Btn Style
+################################################################################*/
+
+$btnWid: 300px;
+$btnHei: 50px;
+$btnWidS: 120px;
+
+
+.btn {
+	& {
+		width: $btnWid;
+		height: $btnHei;
+		padding: 0 12px;
+		background: $colorLineGray;
+		@include linear-gradient($colorGrayLv2,$colorGrayLv4);
+		border: 1px solid $colorGrayLv5;
+		@include border-radius(8px);
+		@include border-box();
+		@include box-shadow("0 1px 2px 0 rgba(0,0,0,0.3), inset 0 1px 1px 0 rgba(255,255,255,0.6)");
+		color: $colorTextBase;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: $btnHei;
+		text-align: center;
+		text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+		text-decoration: none;
+		display: inline-block;
+	}
+	&:hover,
+	&.hover {
+		background: $colorGrayLv2;
+		@include linear-gradient($colorGrayLv1,$colorGrayLv3);
+		border-color: $colorGrayLv4;
+		color: $colorTextBase;
+	}
+	&:active,
+	&.active {
+		background: $colorGrayLv4;
+		@include linear-gradient($colorGrayLv4,$colorGrayLv3);
+		border-color: $colorGrayLv5;
+		@include box-shadow("0 0 1px 0 rgba(0,0,0,0.3)");
+		color: $colorTextBase;
+	}
+	/* Main Btn */
+	&.main {
+		background: $colorBgAcc;
+		@include linear-gradient($colorBgAcc*1.25,$colorBgAcc*1.0);
+		border-color: $colorLineAccent;
+		color: #FFF;
+		text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
+	}
+	&.main:hover {
+		background: $colorBgAcc;
+		@include linear-gradient($colorBgAcc*1.35,$colorBgAcc*1.0);
+		border-color: $colorLineAccent;
+		color: #FFF;
+		text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
+	}
+	&.main:active {
+		background: $colorBgAcc;
+		@include linear-gradient($colorBgAcc*1.0,$colorBgAcc*1.0);
+		border-color: $colorLineAccent;
+		@include box-shadow("0 0 1px 0 rgba(0,0,0,0.3)");
+		color: #FFF;
+		text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
+	}
+	/* FB Btn */
+	&.fb {
+		background: $colorfb;
+		@include linear-gradient($colorfbWeak,$colorfb);
+		border-color: $colorfb;
+		color: #FFF;
+		text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
+	}
+	&.fb:hover {
+		background: $colorfbWeakest;
+		@include linear-gradient($colorfbWeakest,$colorfb);
+		border-color: $colorfb;
+		color: #FFF;
+		text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
+	}
+	&.fb:active {
+		background: $colorfb;
+		@include linear-gradient($colorfbWeak,$colorfb);
+		border-color: $colorfb;
+		@include box-shadow("0 0 1px 0 rgba(0,0,0,0.3)");
+		color: #FFF;
+		text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
+	}
+}
+
+.btnS {
+	& {
+		@extend .btn;
+		width: $btnWidS;
+	}
+}
+
+.formBtn {
+	& {
+		@extend .btn;
+		width: $btnWidS;
+		height: 42px;
+		line-height: 42px;
+	}
+}
+
+/*
+################################################################################
+Text Style
+################################################################################*/
+
+.hdLv1 {
+	margin: 0 0 10px;
+	padding: 5px 0;
+	font-weight: bold;
+	font-size: 160%;
+	color: $colorTextEm;
+	border-bottom: 1px dotted $colorLineGray;
+}
+
+.note {
+	font-size: 84%;
+	color: $colorTextWeak;
+}
+.txtC {text-align: center;}
+.txtR {text-align: right;}
+.txtL {text-align: left;}
+
+.mB10 {margin-bottom: 10px;}
+.mB20 {margin-bottom: 20px;}
+.mB30 {margin-bottom: 30px;}
+
+/*
+################################################################################
+Form Style
+################################################################################*/
+
+.btnList {
+	margin: 20px 0;
+}
+
+/*
+################################################################################
+module Style
+################################################################################*/
+
+/*
+-------------------------------------------------------------------
+top
+-------------------------------------------------------------------*/
+
+.eyecatch {
+	zoom: 1;
+	&:after { content: ""; display: block; clear: both; height: 0; }
+	.eyecatchTxt {
+		padding: 0 5px;
+		float: left;
+	}
+	.eyecatchTit {
+		margin: 20px 0 20px;
+		font-weight: bold;
+		font-size: 160%;
+		color: $colorTextWeak;
+	}
+	#entryArea {
+		width: 240px;
+		margin: 10px 0 0 ;
+		padding: 20px 10px 10px;
+		background: $colorBgWeak;
+		@include border-radius(5px);
+		float: right;
+		.btn {
+			width: 220px;
+			margin: 5px 0 0;
+		}
+	}
+}
+.step {
+	padding: 10px 0;
+	zoom: 1;
+	&:after { content: ""; display: block; clear: both; height: 0; }
+	dl {
+		width: 280px;
+		margin-right: 18px;
+//			background: $colorBgWeak;
+		@include border-radius(5px);
+		float:left;
+		&.last {
+			margin-right: 0;
+		}
+		&.twoCol {
+			width: 580px;
+		}
+	}
+	dt {
+		font-weight: bold;
+		padding: 5px;		
+		border-bottom: 1px dotted $colorLineGrayLight;
+	}
+	dd {
+		padding: 10px 5px;		
+	}	
+}	
+
+/*
+-------------------------------------------------------------------
+detail page
+-------------------------------------------------------------------*/
+
+.shopDataBox {
+	width: 700px;
+	margin: 0 atuo;
+	p {
+		margin-bottom: 5px;
+	}
+	.shopganre {
+		color: $colorTextWeak;
+		font-size: 84%;
+		span {
+			padding-right: 10px;
+		}
+	}
+	.shopname {
+		font-size: 140%;
+		font-weight: bold;
+	}
+}
+.shopDetail {
+	margin: 20px 0 ;
+	font-size: 84%;
+	border-top: 1px solid $colorLineGrayLight;
+	border-left: 1px solid $colorLineGrayLight;
+	th, td {
+		border-right: 1px solid $colorLineGrayLight;
+		border-bottom: 1px solid $colorLineGrayLight;
+		vertical-align: top; 
+	}
+	th {
+		width: 120px;
+		padding: 10px;
+		background: $colorBgWeak;
+	}
+	td {
+		width: 400px;
+		padding: 10px;
+		background: $colorBgBase;
+		line-height: 1.5em;
+	}
+}
+
+.shopData  {
+	margin-left: 180px;
+}
+
+.thumbImg {
+	img {
+		width: 150px;
+		padding: 5px;
+		border: 1px solid $colorLineGrayLight;
+		float: left;
+	}
+}
+
+/*
+-------------------------------------------------------------------
+Form
+-------------------------------------------------------------------*/
+
+#shopUrl {
+	width: 300px;
+	margin: 0 10px 10px 0;
+	padding: 10px;
+	@include border-radius(5px);
+}
