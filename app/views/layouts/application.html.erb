@@ -8,12 +8,33 @@
 </head>
 <body>
 
-<p><%= link_to 'Logout', destroy_user_session_path, method: :delete %></p>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div id="wrap">
+	<div id="header">
+		<div class="inner">
+			<h1 id="logo"><a href="/">lunchtime</a></h1>
+			<div id="nav">
+				<ul id="gloNav">
+					<li><a href="shop_entry.html">お店を登録する</a></li>
+				</ul>
+				<ul id="utilityNav">
+					<li>username さん</li>
+					<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+				</ul>
+			</div>
+		</div><!-- // .inner -->
+	</div><!-- // #header -->
 
 <%= yield %>
+
+	<div id="footer">
+	<div class="inner">
+		<div id="copyright">&copy; lunchtime.</div>
+		<ul class="ftLink">
+			<li>お問い合わせ:<a href="https://twitter.com/hyshhryk/">@hyshhryk</a>,<a href="https://twitter.com/averagefury/">@averagefury</a></li>
+		</ul>
+	</div><!-- // .inner -->
+	</div><!-- // #footer -->
+</div><!-- // #wrap -->
 
 </body>
 </html>
