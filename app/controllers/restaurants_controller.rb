@@ -24,14 +24,8 @@ class RestaurantsController < ApplicationController
   end
 
   # GET /restaurants/new
-  # GET /restaurants/new.json
   def new
     @restaurant = Restaurant.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @restaurant }
-    end
   end
 
   # GET /restaurants/1/edit
@@ -40,18 +34,13 @@ class RestaurantsController < ApplicationController
   end
 
   # POST /restaurants
-  # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(params[:restaurant])
 
-    respond_to do |format|
-      if @restaurant.save
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
-        format.json { render json: @restaurant, status: :created, location: @restaurant }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
-      end
+    if @restaurant.save
+      redirect_to @restaurant, notice: 'Restaurant was successfully created.'
+    else
+      render action: "new"
     end
   end
 
