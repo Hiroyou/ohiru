@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /restaurants
   # GET /restaurants.json
   def index
