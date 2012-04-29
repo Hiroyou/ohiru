@@ -1,21 +1,5 @@
 	<div id="container" class="oneCol">
 		<div class="inner">			
-			<div id="main">
-
-				<h1>New restaurant</h1>
-				
-				<%= render 'form' %>
-				
-				<%= link_to 'Back', restaurants_path %>
-	
-			</div><!-- // #main -->
-		</div><!-- // .inner -->
-	</div><!-- // #container -->
-
-//
-
-	<div id="container" class="oneCol">
-		<div class="inner">			
 		<div id="main">
 				<h1 class="hdLv1">ランチに行ってみたいお店を登録しよう</h1>
 				<div class="step">
@@ -36,6 +20,30 @@
 						</dd>
 					</dl>
 				</div>
+
+				<!-- -->
+				
+				
+      <%= form_for(@restaurant) do |restaurant| %>
+        <% if @restaurant.errors.any? %>
+          <div id="error_explanation">
+            <p><%= @restaurant.errors.full_messages.first %></p>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= restaurant.label :url %><br />
+          <%= restaurant.text_field :url %>
+        </div>
+        <div class="actions">
+          <%= restaurant.submit %>
+        </div>
+      <% end %>
+
+      <%= link_to 'Back', restaurants_path %>
+
+				<!-- -->
+				
 			</div><!-- // #main -->
 		</div><!-- // .inner -->
 	</div><!-- // #container -->
