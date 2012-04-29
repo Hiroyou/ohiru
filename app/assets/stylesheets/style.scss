@@ -15,7 +15,8 @@ html {
 	height: 100%;
 }
 body {
-	background: #86CACC;
+//	background: #86CACC;
+	background: $colorBgBase;
 	color: $colorTextBase;
 	font-family: sans-serif;
 	line-height: 1.25;
@@ -40,12 +41,12 @@ $logoHei: 40px;
 //	padding: 10px 20px;
 	padding: 10px 0;
 	background: transparent url(#{$imgDir}logo.png) 20px 3px no-repeat;
-	color: $colorTextBase;
+	color: #fff;
 	font-weight: bold;
 	font-size: 160%;
 //	text-indent: -9999px;
 	a {
-		color: #333333;
+		color: #ffffff;
 		text-decoration: none;
 	}
 }
@@ -103,7 +104,7 @@ $sideWidth: 210px;
 
 #header {
 	width: 100%;
-	background: $colorBase;
+	background: $colorBgMain;
 	border-bottom: 1px solid $colorLineGrayLight;
 }
 
@@ -112,7 +113,8 @@ $sideWidth: 210px;
 	font-size: 84%;
 	bottom: 0;
 	.inner {
-		padding: 30px 0;
+		border-top: 1px solid $colorLineGrayLight;
+		padding: 20px 0;
 	}
 	ul {
 		position: absolute;
@@ -126,18 +128,22 @@ $sideWidth: 210px;
 			}		
 		}
 	}
-	a { color: $colorTextWeak;}
-	
+	a { color: $colorTextBase;}
+
 }
 
 #nav {
 	width: $siteWidth - 200px;
 	font-size: 84%;
+	color: #fff;
 	position: absolute;
 	right: 0px;
 	top: 10px;
 	zoom: 1;
 	&:after { content: ""; display: block; clear: both; height: 0; }
+	a {
+		color: #ffffff;
+	}
 	#gloNav {
 		float: left;
 	}
@@ -268,11 +274,20 @@ Text Style
 
 .hdLv1 {
 	margin: 0 0 10px;
-	padding: 5px 0;
+	padding: 5px 8px;
 	font-weight: bold;
-	font-size: 160%;
-	color: $colorTextEm;
-	border-bottom: 1px dotted $colorLineGray;
+	font-size: 120%;
+	color: $colorTextBase;
+	border-left: 4px solid $colorLineMain;
+}
+
+.hdLv2 {
+	margin: 0 0 10px;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 100%;
+	color: $colorTextBase;
+	border-bottom: 1px solid $colorLineMain;
 }
 
 .note {
@@ -339,7 +354,6 @@ top
 	dl {
 		width: 280px;
 		margin-right: 18px;
-//			background: $colorBgWeak;
 		@include border-radius(5px);
 		float:left;
 		&.last {
@@ -356,8 +370,64 @@ top
 	}
 	dd {
 		padding: 10px 5px;		
-	}	
+	}
 }	
+
+.about {
+	margin: 20px 0;
+	border: 1px solid $colorBgWeak;
+	@include border-radius(5px);
+	dl {
+		background: $colorBgWeak;
+	}
+}
+
+
+/*
+-------------------------------------------------------------------
+shop add page
+-------------------------------------------------------------------*/
+.shopList {
+	margin: 20px auto;
+	ul { 
+		margin-bottom: 20px;
+		zoom: 1;
+		&:after { content: ""; display: block; clear: both; height: 0; }
+	}
+	.shopItem {
+		width: 270px;
+		padding: 10px;
+		margin-right: 10px;
+		border: 1px solid $colorLineGrayLight;
+		@include border-radius(5px);
+		float: left;
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+	.shopThumb {
+		width: 90px;
+		float: left;
+		img {
+			width: 80px;
+			padding: 5px;
+			border: 1px solid $colorLineGrayLight;
+		}
+	}
+	.shopMeta {
+		margin-left: 100px;
+		min-height: 72px;
+	}
+	.shopgenre {
+		margin: 3px 0;
+		color: $colorTextWeak;
+		font-size: 84%;
+	}
+	.shopname {
+		font-size: 100%;
+		font-weight: bold;
+	}
+}
 
 /*
 -------------------------------------------------------------------
@@ -365,17 +435,15 @@ detail page
 -------------------------------------------------------------------*/
 
 .shopDataBox {
-	width: 700px;
 	margin: 0 atuo;
+	padding: 20px;
+	border: 1px solid $colorLineGrayLight;
 	p {
 		margin-bottom: 5px;
 	}
 	.shopganre {
 		color: $colorTextWeak;
 		font-size: 84%;
-		span {
-			padding-right: 10px;
-		}
 	}
 	.shopname {
 		font-size: 140%;
