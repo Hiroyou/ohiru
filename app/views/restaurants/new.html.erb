@@ -2,17 +2,16 @@
   <div class="inner">
     <div id="main">
       <h1 class="hdLv1">ランチに行ってみたいお店を登録しよう</h1>
-      <div class="step">
-        <dl>
-          <dt>step1</dt>
-          <dd>
-          <p><a href="http://tabelog.com/">食べログ</a>から探す</p>
-          <img src="#" alt="詳細画面のURLを取ります">
-          </dd>
-        </dl>
-        <dl class="twoCol last">
-          <dt>step2</dt>
-          <dd>
+		<div class="step">
+			<dl>
+				<dt>1.お店を選ぶ</dt>
+				<dd>
+				<p><a href="http://tabelog.com/" target="_blank">食べログ</a></p>
+				</dd>
+			</dl>
+			<dl class="twoCol last">
+				<dt>2.お店のURLを登録する</dt>
+				<dd>
           <%= form_for(@restaurant) do |restaurant| %>
             <p>
             <%= restaurant.text_field :url, id: 'shopUrl' %>
@@ -24,7 +23,7 @@
         </dl>
       </div>
 				<div class="section">
-					<h2 class="hdLv2">お店リスト</h2>
+					<h2 class="hdLv2">行きたいお店リスト</h2>
 					<div class="shopList">
 						<ul>
 							<li class="shopItem">
