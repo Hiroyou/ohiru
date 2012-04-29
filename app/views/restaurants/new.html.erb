@@ -1,9 +1,29 @@
-<div id="container" class="oneCol">
-  <div class="inner">
-    <div id="main">
+	<div id="container" class="oneCol">
+		<div class="inner">			
+		<div id="main">
+				<h1 class="hdLv1">ランチに行ってみたいお店を登録しよう</h1>
+				<div class="step">
+					<dl>
+						<dt>step1</dt>
+						<dd>
+						<p><a href="http://tabelog.com/">食べログ</a>から探す</p>
+						<img src="#" alt="詳細画面のURLを取ります">
+						</dd>
+					</dl>
+					<dl class="twoCol last">
+						<dt>step2</dt>
+						<dd>
+						<form method="post" action="">
+				           	<p><input type="text" id="shopUrl" name="shopurl" value="お店のURLを入力"><input type="submit" id="shopUrlBtn" class="formBtn" name="shopurlbtn" value="登録"></p>
+				           	<p class="note">(例)http://r.tabelog.com/tokyo/A1301/A130101/13002329/</p>
+						</form>
+						</dd>
+					</dl>
+				</div>
 
-      <h1>New restaurant</h1>
-
+				<!-- -->
+				
+				
       <%= form_for(@restaurant) do |restaurant| %>
         <% if @restaurant.errors.any? %>
           <div id="error_explanation">
@@ -22,6 +42,8 @@
 
       <%= link_to 'Back', restaurants_path %>
 
-    </div><!-- // #main -->
-  </div><!-- // .inner -->
-</div><!-- // #container -->
+				<!-- -->
+				
+			</div><!-- // #main -->
+		</div><!-- // .inner -->
+	</div><!-- // #container -->
