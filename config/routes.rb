@@ -4,7 +4,7 @@ Lunch::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :restaurants, only: [:index, :new, :create]
+  resources :restaurants, only: [:new, :create]
   get 'restaurant' => 'restaurants#show', as: 'restaurant'
 
   # Sample of regular route:

@@ -1,12 +1,6 @@
 class RestaurantsController < ApplicationController
   before_filter :authenticate_user!
 
-  #TODO: 一覧を表示
-  # GET /restaurants
-  def index
-    @restaurants = Restaurant.all
-  end
-
   # GET /restaurant
   def show
     #TODO: 表示するものがなければredirect
@@ -33,7 +27,7 @@ class RestaurantsController < ApplicationController
       end
 
       if @restaurant.save
-        redirect_to restaurants_path, notice: 'Restaurant was successfully created.'
+        redirect_to new_restaurant_path
       else
         render action: "new"
       end
