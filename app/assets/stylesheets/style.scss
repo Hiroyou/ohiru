@@ -334,12 +334,11 @@ top
 -------------------------------------------------------------------*/
 
 .eyecatch {
-	padding-left: 290px;
 	zoom: 1;
-	background: url(#{$imgDir}top_img.png) 0 0 no-repeat #ffffff;
 	&:after { content: ""; display: block; clear: both; height: 0; }
 	.eyecatchTxt {
 		padding: 0 5px;
+		float: left;
 	}
 	.eyecatchTit {
 		margin: 20px 0 20px;
@@ -348,12 +347,14 @@ top
 		color: $colorTextWeak;
 	}
 	#entryArea {
-//		width: 400px;
+		width: 240px;
 		margin: 10px 0 0 ;
 		padding: 20px 10px 10px;
 		background: $colorBgWeak;
 		@include border-radius(5px);
+		float: right;
 		.btn {
+			width: 220px;
 			margin: 5px 0 0;
 		}
 	}
