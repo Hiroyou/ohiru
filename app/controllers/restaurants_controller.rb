@@ -1,36 +1,23 @@
 class RestaurantsController < ApplicationController
   before_filter :authenticate_user!
 
+  #TODO: 一覧を表示
   # GET /restaurants
-  # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @restaurants }
-    end
   end
 
-  # GET /restaurants/1
-  # GET /restaurants/1.json
+  # GET /restaurant
   def show
-    @restaurant = Restaurant.find(params[:id])
+    #TODO: 表示するものがなければredirect
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @restaurant }
-    end
+    #TODO: そのユーザの今日のお店を取ってくる
+    @restaurant = Restaurant.find(4)
   end
 
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
-  end
-
-  # GET /restaurants/1/edit
-  def edit
-    @restaurant = Restaurant.find(params[:id])
   end
 
   # POST /restaurants
@@ -46,7 +33,7 @@ class RestaurantsController < ApplicationController
       end
 
       if @restaurant.save
-        redirect_to @restaurant, notice: 'Restaurant was successfully created.'
+        redirect_to restaurants_path, notice: 'Restaurant was successfully created.'
       else
         render action: "new"
       end

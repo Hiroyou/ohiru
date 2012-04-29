@@ -1,74 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div id="container" class="oneCol">
+  <div class="inner">
+    <div id="main">
 
-<p>
-  <b>Url:</b>
-  <%= @restaurant.url %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @restaurant.name %>
-</p>
-
-<p>
-  <b>Thumbnail:</b>
-  <%= @restaurant.thumbnail %>
-</p>
-
-<p>
-  <b>Genre:</b>
-  <%= @restaurant.genre %>
-</p>
-
-<p>
-  <b>Open hours:</b>
-  <%= @restaurant.open_hours %>
-</p>
-
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
-
-//
-
-	<div id="container" class="oneCol">
-		<div class="inner">			
-		<div id="main">
-
-				<h1 class="hdLv1">今日のランチ</h1>
-				<div class="section shopDataBox">
-					<div class="thumbImg"><img src="http://image1-3.tabelog.k-img.com/restaurant/images/Rvw/898/320x320_898047.jpg" alt="お店の写真"></div>
-					<div class="shopData">
-						<p class="shopganre"><span>インド料理</span><span>インドカレー</span><span>小カテゴリ</span></p>
-						<p class="shopname">ナイルレストラン</p>
-						<table class="shopDetail">
-							<tr>
-								<th>
-									営業時間
-								</th>
-								<td>
-								 	平日/11:30～21:30<br />
-								 	日曜・祝日/11:30～20:30<br />
-								 	定休日/火曜日<br />
-								 	ランチ営業、日曜営業<br />
-								</td>
-							</tr>
-							<tr>
-								<th>
-									お店の詳細
-								</th>
-								<td>
-									<p><a href="http://r.tabelog.com/tokyo/A1301/A130101/13002329/">http://r.tabelog.com/tokyo/A1301/A130101/13002329/</a></p>
-								</td>
-							</tr>
-						</table>
-					<form method="post" action="">
-			            <div class="btnList">
-							<p class="txtC"><a class="btn main" href="#">このお店に行く</a></p>
-			            </div>	
-					</form>
-					</div>
-				</div><!-- // .section -->
-			</div><!-- // #main -->
-		</div><!-- // .inner -->
-	</div><!-- // #container -->
+      <h1 class="hdLv1">今日のランチ</h1>
+      <div class="section shopDataBox">
+        <div class="thumbImg"><%= image_tag(@restaurant.thumbnail) %></div>
+        <div class="shopData">
+          <p class="shopganre"><%= @restaurant.genre %></p>
+          <p class="shopname"><%= @restaurant.name %></p>
+          <table class="shopDetail">
+            <tr>
+              <th>
+                営業時間
+              </th>
+              <td>
+                <%#TODO: 改行 %>
+                <%= @restaurant.open_hours %>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                お店の詳細
+              </th>
+              <td>
+                <p><%= link_to @restaurant.url, @restaurant.url, target: '_blank' %></p>
+              </td>
+            </tr>
+          </table>
+          <% if false %>
+          <form method="post" action="">
+            <div class="btnList">
+              <p class="txtC"><a class="btn main" href="#">このお店に行く</a></p>
+            </div>
+          </form>
+          <% end %>
+        </div>
+      </div><!-- // .section -->
+    </div><!-- // #main -->
+  </div><!-- // .inner -->
+</div><!-- // #container -->

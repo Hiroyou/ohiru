@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Lunch</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Lunch</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<div id="wrap">
-	<div id="header">
-		<div class="inner">
-			<h1 id="logo"><a href="/">lunchtime</a></h1>
-			<div id="nav">
-				<ul id="gloNav">
-					<li><a href="shop_entry.html">お店を登録する</a></li>
-				</ul>
-				<ul id="utilityNav">
-					<li>username さん</li>
-					<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-				</ul>
-			</div>
-		</div><!-- // .inner -->
-	</div><!-- // #header -->
+    <div id="wrap">
+      <div id="header">
+        <div class="inner">
+          <h1 id="logo"><%= link_to 'lunchtime', restaurant_path %></h1>
+          <div id="nav">
+            <% if user_signed_in? %>
+              <ul id="gloNav">
+                <% unless params['controller'] == 'restaurants' && params['action'] == 'new' %>
+                  <li><%= link_to 'お店を登録する', new_restaurant_path %></li>
+                <% end %>
+              </ul>
+              <ul id="utilityNav">
+                <li><%= current_user.first_name %> さん</li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            <% end %>
+          </div>
+        </div><!-- // .inner -->
+      </div><!-- // #header -->
 
-<%= yield %>
+      <%= yield %>
 
-	<div id="footer">
-	<div class="inner">
-		<div id="copyright">&copy; lunchtime.</div>
-		<ul class="ftLink">
-			<li>お問い合わせ:<a href="https://twitter.com/hyshhryk/">@hyshhryk</a>,<a href="https://twitter.com/averagefury/">@averagefury</a></li>
-		</ul>
-	</div><!-- // .inner -->
-	</div><!-- // #footer -->
-</div><!-- // #wrap -->
+      <div id="footer">
+        <div class="inner">
+          <div id="copyright">&copy; lunchtime.</div>
+          <ul class="ftLink">
+            <li>お問い合わせ:<a href="https://twitter.com/hyshhryk/">@hyshhryk</a>,<a href="https://twitter.com/averagefury/">@averagefury</a></li>
+          </ul>
+        </div><!-- // .inner -->
+      </div><!-- // #footer -->
+    </div><!-- // #wrap -->
 
-</body>
+  </body>
 </html>
