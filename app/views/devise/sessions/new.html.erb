@@ -1,18 +1,26 @@
-	<div id="container" class="oneCol">
-		<div class="inner">			
-			<div id="main" class="eyecatch">
-				<div class="eyecatch section">
-					<div class="eyecatchTxt">
-						<p class="eyecatchTit">毎日違うお店でランチを楽むためのサービス</p>
-						<p>行ってみたいお店をリストに登録しておくと、毎日お昼にお店をオススメします。</p>
-						<p>お店を選ぶのが面倒な人は使ってみてください。</p>
-					</div>
+<div id="container" class="oneCol">
+  <div class="inner">
+    <div id="main" class="eyecatch">
+      <div class="eyecatch section">
+        <div class="eyecatchTxt">
+          <p class="eyecatchTit">毎日違うお店でランチを楽むためのサービス</p>
+          <p>行ってみたいお店をリストに登録しておくと、毎日お昼にお店をオススメします。</p>
+          <p>お店を選ぶのが面倒な人は使ってみてください。</p>
+        </div>
 
-					<div id="entryArea">
-						<p class="txtC note">Facebookアカウントで登録できます。</p>
-						<p class="txtC mB20"><a class="btn main" href="shop_entry.html">登録する</a></p>
-					</div>
-				</div>
-			</div><!-- // #main -->
-		</div><!-- // .inner -->
-	</div><!-- // #container -->
+        <div id="entryArea">
+          <p class="txtC note">Facebookアカウントで登録できます。</p>
+          <p class="txtC mB20">
+            <script src="http://connect.facebook.net/en_US/all.js"></script>
+            <script>FB.init({ xfbml:true });</script>
+            <%- if devise_mapping.omniauthable? %>
+              <%- resource_class.omniauth_providers.each do |provider| %>
+                <%= link_to '登録する', omniauth_authorize_path(resource_name, provider), class: 'btn main' %>
+              <% end -%>
+            <% end -%>
+          </p>
+        </div>
+      </div>
+    </div><!-- // #main -->
+  </div><!-- // .inner -->
+</div><!-- // #container -->
