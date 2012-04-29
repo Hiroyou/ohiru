@@ -8,7 +8,7 @@ gem 'rails', '3.2.3'
 gem 'thin'
 
 gem 'sqlite3'
-gem 'pg', '~> 0.13'
+#gem 'pg', '~> 0.13'
 gem 'heroku_backup_task', :git => 'git://github.com/mataki/heroku_backup_task.git'
 
 gem 'devise', '~> 1.5'

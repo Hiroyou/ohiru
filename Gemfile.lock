@@ -153,7 +153,6 @@ GEM
       oauth2 (~> 0.6.0)
       omniauth (~> 1.0)
     orm_adapter (0.0.7)
-    pg (0.13.2)
     polyglot (0.3.3)
     pry (0.9.9.4)
       coderay (~> 1.0.5)
@@ -285,7 +284,6 @@ DEPENDENCIES
   newrelic_rpm
   omniauth (~> 1.0)
   omniauth-facebook (~> 1.0)
-  pg (~> 0.13)
   pry-doc
   pry-rails
   rails (= 3.2.3)
