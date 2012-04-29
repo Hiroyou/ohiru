@@ -37,8 +37,19 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(params[:restaurant])
 
-    if @restaurant.save
-      redirect_to @restaurant, notice: 'Restaurant was successfully created.'
+    if @restaurant.valid?
+      begin
+        @restaurant.collect
+      rescue
+        render file: 'public/500.html', status: 500
+        return
+      end
+
+      if @restaurant.save
+        redirect_to @restaurant, notice: 'Restaurant was successfully created.'
+      else
+        render action: "new"
+      end
     else
       render action: "new"
     end
