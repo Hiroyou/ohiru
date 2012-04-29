@@ -1,0 +1,71 @@
+// ########################################
+// Site Config
+// ########################################
+
+// ========================================
+// Props
+// ========================================
+$imgDir: "../images/";
+
+// ========================================
+// Color
+// ========================================
+
+
+// ----------------------------------------
+// Gray
+// ----------------------------------------
+$colorGrayLv1: #F4F1ED;
+$colorGrayLv2: #EFECE8;
+$colorGrayLv3: #DDDAD4;
+$colorGrayLv4: #BFB9AF;
+$colorGrayLv5: #898175;
+$colorGrayLv6: #665D51;
+$colorGrayLv7: #3F3526;
+
+// ----------------------------------------
+// Set Site Color
+// ----------------------------------------
+$colorBase: #ffffff;
+$colorMain: #86CACC;
+
+//Accent Color
+$colorAccent: #f3a344;
+$colorAccentWeak:#F3C69F;
+$colorAccentWeakest:#FBCCA4;
+
+// Status Color
+$colorError: #ed222c;
+$colorSuccess: #b8e649;
+
+// Text Color
+$colorTextWeakest: #cccccc;
+$colorTextWeak: #999999;
+$colorTextBase: #333333;
+$colorTextEm: $colorMain;
+$colorTextStrong: $colorMain;
+$colorTextLink: #2aacf1;
+
+// Background Color
+$colorBgBase: $colorBase;
+$colorBgHilight: #FFD9E1;
+$colorBgHilightLight: #FFF2F5;
+
+$colorBgWeak: #FDFAF7;
+$colorBgMain: $colorMain;
+$colorBgAcc: $colorAccent;
+
+// Line Color
+$colorLineGrayLight: #eeeeee;
+$colorLineGray: #999999;
+$colorLineGrayEm: #666666;
+$colorLineGrayStrong: #333333;
+
+//$colorLineMain: $colorMain;
+$colorLineEm: $colorMain;
+$colorLineAccent: $colorAccent;
+
+//FB color 
+$colorfb: #3B5998;
+$colorfbWeak: #6C85B2;
+$colorfbWeakest:#7590C1;
