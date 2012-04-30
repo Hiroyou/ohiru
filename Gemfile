@@ -7,15 +7,15 @@ gem 'rails', '3.2.3'
 
 gem 'thin'
 
-gem 'sqlite3'
-#gem 'pg', '~> 0.13'
-gem 'heroku_backup_task', :git => 'git://github.com/mataki/heroku_backup_task.git'
+group :production do
+  gem 'pg', '~> 0.13'
+  gem 'heroku_backup_task', :git => 'git://github.com/mataki/heroku_backup_task.git'
+  gem 'newrelic_rpm'
+end
 
 gem 'devise', '~> 1.5'
 gem 'omniauth', '~> 1.0'
 gem 'omniauth-facebook', '~> 1.0'
-
-gem 'newrelic_rpm'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -46,6 +46,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 group :development, :test do
+  gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'pry-rails'
   gem 'pry-doc'
