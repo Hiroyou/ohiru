@@ -4,13 +4,21 @@ class RestaurantsController < ApplicationController
   # GET /restaurant
   def show
     restaurants = Restaurant.find_all_by_user_id(current_user.id)
-    redirect_to new_restaurant_path if restaurants.blank?
+    if restaurants.blank?
+      redirect_to new_restaurant_path
+      return
+    end
 
+    # FIXME: do not switch even if restaurants are added; use cron and set on user
+    # TODO: check when to switch
     r = Random.new(Time.now.beginning_of_day.to_i)
     index = r.rand(restaurants.size)
     @restaurant = restaurants[index]
 
-    redirect_to new_restaurant_path unless @restaurant.user_id == current_user.id
+    unless @restaurant.user_id == current_user.id
+      redirect_to new_restaurant_path
+      return
+    end
   end
 
   # GET /restaurants/new
@@ -39,6 +47,7 @@ class RestaurantsController < ApplicationController
     @restaurant.user = current_user
     if @restaurant.save
       redirect_to new_restaurant_path
+      return
     else
       @restaurants = Restaurant.find_all_by_user_id(current_user.id)
       render action: "new"
@@ -54,5 +63,6 @@ class RestaurantsController < ApplicationController
     @restaurant.destroy
 
     redirect_to new_restaurant_path
+    return
   end
 end
