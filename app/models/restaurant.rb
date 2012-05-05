@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class Restaurant < ActiveRecord::Base
+  belongs_to :user
+
   attr_accessible :genre, :name, :open_hours, :thumbnail, :url
 
   validate :url_must_be_tabelog_url

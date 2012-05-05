@@ -1,6 +1,7 @@
 class CreateRestaurants < ActiveRecord::Migration
   def change
     create_table :restaurants do |t|
+      t.references :user
       t.string :url
       t.string :name
       t.string :thumbnail
@@ -9,5 +10,6 @@ class CreateRestaurants < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :restaurants, :user_id
   end
 end

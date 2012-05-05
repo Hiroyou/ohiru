@@ -39,7 +39,7 @@ $logoHei: 40px;
 	width: 200px;
 	height: $logoHei;
 	padding: 10px 0;
-	background: transparent url(#{$imgDir}logo.png) 20px 3px no-repeat;
+//	background: transparent url(#{$imgDir}logo.png) 20px 3px no-repeat;
 	color: #fff;
 	font-weight: bold;
 	font-size: 160%;
@@ -309,6 +309,8 @@ Text Style
 .txtC {text-align: center;}
 .txtR {text-align: right;}
 .txtL {text-align: left;}
+
+.pT10 {padding-top: 10px;}
 
 .mB10 {margin-bottom: 10px;}
 .mB20 {margin-bottom: 20px;}

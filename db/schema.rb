@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120429015053) do
 
   create_table "restaurants", :force => true do |t|
+    t.integer  "user_id"
     t.string   "url"
     t.string   "name"
     t.string   "thumbnail"
@@ -22,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20120429015053) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "restaurants", ["user_id"], :name => "index_restaurants_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

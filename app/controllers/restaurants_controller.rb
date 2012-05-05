@@ -3,15 +3,20 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurant
   def show
-    #TODO: 表示するものがなければredirect
+    restaurants = Restaurant.find_all_by_user_id(current_user.id)
+    redirect_to new_restaurant_path if restaurants.blank?
 
-    #TODO: そのユーザの今日のお店を取ってくる
-    @restaurant = Restaurant.find(4)
+    r = Random.new(Time.now.beginning_of_day.to_i)
+    index = r.rand(restaurants.size)
+    @restaurant = restaurants[index]
+
+    redirect_to new_restaurant_path unless @restaurant.user_id == current_user.id
   end
 
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
+    @restaurants = Restaurant.find_all_by_user_id(current_user.id)
   end
 
   # POST /restaurants
@@ -26,6 +31,7 @@ class RestaurantsController < ApplicationController
         return
       end
 
+      @restaurant.user = current_user
       if @restaurant.save
         redirect_to new_restaurant_path
       else

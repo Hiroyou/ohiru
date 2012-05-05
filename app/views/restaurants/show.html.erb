@@ -2,20 +2,19 @@
   <div class="inner">
     <div id="main">
 
-      <h1 class="hdLv1">今日のランチ</h1>
+      <h1 class="hdLv1">今日のお店</h1>
       <div class="section shopDataBox">
         <div class="thumbImg"><%= image_tag(@restaurant.thumbnail) %></div>
         <div class="shopData">
           <p class="shopganre"><%= @restaurant.genre %></p>
-          <p class="shopname"><%= @restaurant.name %></p>
+          <p class="shopname pT10"><%= @restaurant.name %></p>
           <table class="shopDetail">
             <tr>
               <th>
                 営業時間
               </th>
               <td>
-                <%#TODO: 改行 %>
-                <%= @restaurant.open_hours %>
+                <%= nl2br @restaurant.open_hours %>
               </td>
             </tr>
             <tr>
