@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 class MasterMailer < ActionMailer::Base
   default from: "hyshhryk+ohiru@gmail.com"
 
