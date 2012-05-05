@@ -17,6 +17,7 @@
             <%= restaurant.text_field :url, id: 'shopUrl' %>
             <%= restaurant.submit id: 'shopUrlBtn', class: 'formBtn', value: '登録' %>
             </p>
+            <p style="color:red"><%= @restaurant.errors.full_messages.first %></p>
             <p class="note">例 http://r.tabelog.com/tokyo/A1301/A130101/13002329/</p>
           <% end %>
           </dd>

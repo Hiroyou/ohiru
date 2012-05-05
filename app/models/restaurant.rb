@@ -20,6 +20,8 @@ class Restaurant < ActiveRecord::Base
   end
 
   def collect
+    require 'nokogiri'
+    require 'open-uri'
     doc = Nokogiri::HTML(open(self.url))
     self.name = doc.css('#rdhead-name span.display-name').text.strip
     self.thumbnail = doc.css('#contents-photo img').first.attribute('src').value

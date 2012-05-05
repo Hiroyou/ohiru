@@ -23,27 +23,33 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(params[:restaurant])
 
-    if @restaurant.valid?
-      begin
-        @restaurant.collect
-      rescue
-        render file: 'public/500.html', status: 500
-        return
-      end
-
-      @restaurant.user = current_user
-      if @restaurant.save
-        redirect_to new_restaurant_path
-      else
-        render action: "new"
-      end
-    else
+    unless @restaurant.valid?
+      @restaurants = Restaurant.find_all_by_user_id(current_user.id)
       render action: "new"
+      return
+    end
+
+    begin
+      @restaurant.collect
+    rescue
+      render file: 'public/500.html', status: 500
+      return
+    end
+
+    @restaurant.user = current_user
+    if @restaurant.save
+      redirect_to new_restaurant_path
+    else
+      @restaurants = Restaurant.find_all_by_user_id(current_user.id)
+      render action: "new"
+      return
     end
   end
 
   # DELETE /restaurants/1
   def destroy
+    # TODO: check user_id
+
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
 
