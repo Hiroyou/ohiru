@@ -7,5 +7,7 @@ namespace :reset do
       user.todays_restaurant_id = restaurants[index].id
       user.save
     end
+
+    User.all.each{ |user| MasterMailer.daily(user).deliver }
   end
 end
