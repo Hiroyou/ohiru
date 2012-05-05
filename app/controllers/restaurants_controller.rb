@@ -9,16 +9,11 @@ class RestaurantsController < ApplicationController
       return
     end
 
-    # FIXME: do not switch even if restaurants are added; use cron and set on user
-    # TODO: check when to switch
-    r = Random.new(Time.now.beginning_of_day.to_i)
-    index = r.rand(restaurants.size)
-    @restaurant = restaurants[index]
-
-    unless @restaurant.user_id == current_user.id
-      redirect_to new_restaurant_path
-      return
+    unless current_user.todays_restaurant_id
+      current_user.todays_restaurant_id = restaurants.sample.id
+      current_user.save
     end
+    @restaurant = Restaurant.find(current_user.todays_restaurant_id)
   end
 
   # GET /restaurants/new

@@ -15,6 +15,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.integer :facebook_id, :limit => 8
 
+      t.integer :todays_restaurant_id
+
       t.timestamps
     end
 
