@@ -49,6 +49,9 @@ $logoHei: 40px;
 	a {
 		color: #ffffff;
 		text-decoration: none;
+		&:hover {
+			background: none;
+		}
 	}
 }
 
@@ -117,20 +120,17 @@ $sideWidth: 210px;
 		border-top: 1px solid $colorLineGrayLight;
 		padding: 20px 0;
 	}
-	ul {
+	a { color: $colorTextBase;}
+	.ftLink {
+		width: 500px;
+	}
+	#copyright {
+		width: 380px;
+		text-align: right;
 		position: absolute;
 		right: 0;
-		top: 30px;
-		li {
-			margin-left: 10px;
-			float: left;
-			a {
-				margin: 0 5px;
-			}		
-		}
+		top: 22px;
 	}
-	a { color: $colorTextBase;}
-
 }
 
 #nav {
