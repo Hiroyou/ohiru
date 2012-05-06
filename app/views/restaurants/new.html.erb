@@ -27,7 +27,7 @@
         <h2 class="hdLv2">行きたいお店リスト</h2>
         <div class="shopList">
           <ul>
-            <% @restaurants.each do |restaurant| %>
+            <% @restaurants.each_with_index do |restaurant,i| %>
               <li class="shopItem">
                 <div class="shopThumb">
                   <%= image_tag(restaurant.thumbnail) %>
@@ -38,6 +38,9 @@
                 </div>
                 <%= link_to 'x', "/restaurants/#{restaurant.id}", method: 'delete', class: 'shopDel' %>
               </li>
+              <% if (i % 3) == 2 %>
+                </ul><ul>
+              <% end %>
             <% end if @restaurants %>
           </ul>
         </div>
