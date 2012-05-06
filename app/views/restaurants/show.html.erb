@@ -4,10 +4,10 @@
 
       <h1 class="hdLv1">今日のお店</h1>
       <div class="section shopDataBox">
-        <div class="thumbImg"><%= image_tag(@restaurant.thumbnail) %></div>
+        <div class="thumbImg"><%= link_to image_tag(@restaurant.thumbnail), @restaurant.url, target: '_blank' %></div>
         <div class="shopData">
           <p class="shopganre"><%= @restaurant.genre %></p>
-          <p class="shopname pT10"><%= @restaurant.name %></p>
+          <p class="shopname pT10"><%= link_to @restaurant.name, @restaurant.url, target: '_blank' %></p>
           <table class="shopDetail">
             <tr>
               <th>

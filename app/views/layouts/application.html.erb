@@ -2,6 +2,31 @@
 <html>
   <head>
     <title>ohiru</title>
+
+    <!-- Facebook OGP start //-->
+    <meta property="og:title" content="ohiru" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="http://ohiru.herokuapp.com" />
+    <meta property="og:site_name" content="ohiru" />
+    <meta property="og:description" content="気になるお店を登録しておけば、毎朝メールでランチのお店を提案します。行きたいお店のリストはあるのに、結局いつものお店に行ってしまうあなたへ。" />
+    <meta property="fb:app_id" content="<%= ENV['FACEBOOK_KEY'] %>" />
+    <meta property="fb:admins" content="1658118916,100000127862643" />
+    <!-- Facebook OGP end //-->
+
+    <!-- Google Analytics start //-->
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31477912-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    <!-- Google Analytics end //-->
+
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
