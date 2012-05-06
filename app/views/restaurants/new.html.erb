@@ -36,7 +36,7 @@
                   <p class="shopgenre"><%= restaurant.genre %></p>
                   <p class="shopname"><%= restaurant.name %></p>
                 </div>
-                <a class="shopDel" href="#">×</a>
+                <%= link_to 'x', "/restaurants/#{restaurant.id}", method: 'delete', class: 'shopDel' %>
               </li>
             <% end if @restaurants %>
           </ul>

@@ -52,11 +52,10 @@ class RestaurantsController < ApplicationController
 
   # DELETE /restaurants/1
   def destroy
-    # TODO: check user_id
-
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.destroy
+    @restaurant.destroy if @restaurant.user_id == current_user.id
 
+    @restaurants = Restaurant.find_all_by_user_id(current_user.id)
     redirect_to new_restaurant_path
     return
   end
