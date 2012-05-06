@@ -38,8 +38,8 @@ $logoHei: 40px;
 #logo {
 	width: 200px;
 	height: $logoHei;
-	padding: 10px 0;
-//	background: transparent url(#{$imgDir}logo.png) 20px 3px no-repeat;
+	padding: 10px 0 10px 50px;
+	background: transparent url(#{$imgDir}logo.png) 0px 6px no-repeat;
 	color: #fff;
 	font-weight: bold;
 	font-size: 160%;
