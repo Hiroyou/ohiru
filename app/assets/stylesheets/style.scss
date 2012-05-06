@@ -408,12 +408,13 @@ shop add page
 		&:after { content: ""; display: block; clear: both; height: 0; }
 	}
 	.shopItem {
-		width: 270px;
-		padding: 10px;
+		width: 264px;
+		padding: 10px 16px 10px 10px;
 		margin-right: 10px;
 		margin-bottom: 20px;
 		border: 1px solid $colorLineGrayLight;
 		@include border-radius(5px);
+		position: relative;
 		float: left;
 		&:last-child {
 			margin-right: 0px;
@@ -440,6 +441,27 @@ shop add page
 	.shopname {
 		font-size: 100%;
 		font-weight: bold;
+		text-decoration: none;
+		color: $colorTextBase;
+	}
+	.shopDel {
+		width: 16px;
+		height: 16px;
+		display: block;
+		background: url(#{$imgDir}btn_del.png) 0 0 no-repeat #ffffff;
+		position: absolute;
+		right: 3px;
+		top: 2px;
+		color: #dddddd;
+		font-weight: bold;
+		text-align: center;
+		line-height: 16px;
+		text-decoration: none;
+//		text-indent: -16px;
+		&:hover {
+			background: #B6DFE0;
+			color: #fff;
+		}
 	}
 }
 
