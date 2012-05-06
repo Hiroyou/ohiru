@@ -32,6 +32,16 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <div id="fb-root"></div>
+    <%# Rails.env.production? do %>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=221154891333657";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <%# end %>
 
     <div id="wrap">
       <div id="header">
@@ -56,7 +66,14 @@
 
       <div id="footer">
         <div class="inner">
-          <a href="https://github.com/Hiroyou/ohiru" target="_blank">ohiru</a> &copy; <a href="https://twitter.com/averagefury/" target="_blank">@averagefury</a> & <a href="https://twitter.com/hyshhryk/" target="_blank">@hyshhryk</a> powered by <a href="http://www.heroku.com/" target="_blank">heroku</a>
+          <div id="">
+            <a href="https://github.com/Hiroyou/ohiru" target="_blank">ohiru</a>
+            &copy; <a href="https://twitter.com/averagefury/" target="_blank">@averagefury</a>
+            & <a href="https://twitter.com/hyshhryk/" target="_blank">@hyshhryk</a>
+            powered by <a href="http://www.heroku.com/" target="_blank">heroku</a>
+          <div>
+          <div class="fb-like" data-send="false" data-width="450" data-show-faces="true"></div>
+
           <div id="copyright"></div>
           <ul class="ftLink"></ul>
         </div><!-- // .inner -->
