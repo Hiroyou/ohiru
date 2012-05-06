@@ -15,10 +15,8 @@
           <div id="nav">
             <% if user_signed_in? %>
               <ul id="gloNav">
-                <% unless params['controller'] == 'restaurants' &&
-                  (params['action'] == 'new' || params['action'] == 'create') %>
-                  <li><%= link_to 'お店を登録する', new_restaurant_path %></li>
-                <% end %>
+                <li><%= link_to 'お店を登録する', new_restaurant_path %></li>
+                <li><%= link_to '今日のお店', restaurant_path %></li>
               </ul>
               <ul id="utilityNav">
                 <li><%= current_user.first_name %> さん</li>
